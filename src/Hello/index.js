@@ -1,16 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react'
 
-import text from './text.json';
-import styles from './style.css';
+import text from './text.json'
+import styles from './style.css'
 
-class Hello extends Component {
-  render() {
-    return (
-      <div className={styles.main}>
-        {text.hello}
-      </div>
-    )
-  }
-}
+const Hello = () => (
+  <div className={styles.main}>
+    {text.hello}
+  </div>
+)
 
 export default Hello

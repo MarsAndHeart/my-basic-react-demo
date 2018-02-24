@@ -1,12 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Hello from './Hello';
-
-const MainApp = () => (
-  <div>
-    <Hello/>
-  </div>
-)
+import MainApp from './MainApp';
 
 ReactDOM.render(<MainApp />, document.getElementById('root'));

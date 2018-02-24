@@ -1,12 +1,22 @@
-import React from 'react'
+/**
+ * @flow
+ */
+import React, { Component } from 'react';
 
-import text from './text.json'
-import styles from './style.css'
+import text from './text.json';
+import styles from './style.css';
 
-const Hello = () => (
-  <div className={styles.main}>
-    {text.hello}
-  </div>
-)
+type Props = {
+  name: string,
+}
+class Hello extends Component<Props> {
+  render() {
+    return (
+      <div className={styles.main}>
+        {text.hello + this.props.name}
+      </div>
+    );
+  }
+}
 
-export default Hello
+export default Hello;

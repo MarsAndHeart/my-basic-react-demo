@@ -4,7 +4,9 @@ module.exports = {
         "es6": true
     },
     "extends": [
-        "plugin:flowtype/recommended"
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:flowtype/recommended",
     ],
     "parserOptions": {
         "ecmaFeatures": {
@@ -34,5 +36,9 @@ module.exports = {
             "error",
             "always"
         ],
+        "flowtype/require-valid-file-annotation": [
+            2,
+            "always"
+        ]
     },
 };

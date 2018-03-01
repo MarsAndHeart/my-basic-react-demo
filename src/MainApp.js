@@ -3,12 +3,15 @@
  * @flow
  */
 import React from 'react';
-import Hello from './Hello';
+import { Provider } from 'react-redux';
+
+import Routers from './Rooters';
+import store from './basicStore';
 
 const MainApp = () => (
-  <div>
-    <Hello name="flow"/>
-  </div>
+  <Provider store={store}>
+    <Routers/>
+  </Provider>
 );
 
 export default MainApp;

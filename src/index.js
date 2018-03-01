@@ -1,6 +1,12 @@
+/*
+* @flow
+*/
 import React from 'react';
 import ReactDOM from 'react-dom';
 
 import MainApp from './MainApp';
 
-ReactDOM.render(<MainApp />, document.getElementById('root'));
+const root = document.getElementById('root');
+if(root !== null){
+  ReactDOM.render(<MainApp />, root);
+}

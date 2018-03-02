@@ -22,7 +22,9 @@ const route = (routes: Array<RouteType> = [indexPage], action: Action) => {
   }
   if (action.type === 'route/pop') {
     let newRoutes = [].concat(routes);
-    newRoutes.pop();
+    if(newRoutes.length>1){
+      newRoutes.pop();
+    }
     return newRoutes;
   }
   if (action.type === 'route/replace') {

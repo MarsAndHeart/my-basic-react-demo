@@ -7,21 +7,10 @@ import { Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import IndexPage from './pages/IndexPage';
-import Page1 from './pages/Page1';
-import Page2 from './pages/Page2';
-
 import type {RouteType} from './reducers/route';
 import actions from './actions';
+import pages from './pages';
 
-const appRoutes = [
-  { path: '/Page1',
-    component: Page1
-  },
-  { path: '/Page2',
-    component: Page2
-  },
-];
 
 type Props = {
   history: any,
@@ -30,7 +19,7 @@ type Props = {
   pop: ()=>{},
 }
 
-class Routers extends Component<Props>{
+class AppRouter extends Component<Props>{
   constructor(props: Props){
     super(props);
     this.hasGoBack = false;
@@ -43,11 +32,6 @@ class Routers extends Component<Props>{
 
     history.listen((location,action) => {
       let route = this.props.route;
-      // console.log({
-      //   location,
-      //   action,
-      //   route,
-      // });
       if(action === 'POP'){
         if(!route.find(ele=>ele === location.pathname)){
           this.hasGoForward = true;
@@ -95,10 +79,9 @@ class Routers extends Component<Props>{
     return (
       <Router history={this.props.history}>
         <div>
-          <Route exact path="/" component={IndexPage}></Route>
           {
-            appRoutes.map(ele=>(
-              <Route key={ele.path} path={ele.path} component={ele.component} ></Route>
+            pages.map(ele=>(
+              <Route key={ele.path} {...ele}></Route>
             ))
           }
         </div>
@@ -124,4 +107,4 @@ function actionMaping(dispatch) {
   };
 }
 
-export default connect(propsMapping, actionMaping)(Routers);
+export default connect(propsMapping, actionMaping)(AppRouter);

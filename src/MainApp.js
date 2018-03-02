@@ -5,12 +5,12 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 
-import Routers from './Rooters';
+import AppRouter from './AppRouter';
 import store from './basicStore';
 
 const MainApp = () => (
   <Provider store={store}>
-    <Routers/>
+    <AppRouter/>
   </Provider>
 );
 

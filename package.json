@@ -6,7 +6,7 @@
   "author": "jianghai",
   "license": "MIT",
   "scripts": {
-    "start": "webpack",
+    "start": "webpack-dev-server --open",
     "server": "webpack-dev-server --open",
     "eslint": "./node_modules/.bin/eslint src",
     "eslintfix": "./node_modules/.bin/eslint src --fix",

@@ -4,13 +4,16 @@
  */
 import React from 'react';
 import { Provider } from 'react-redux';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import AppRouter from './AppRouter';
 import store from './basicStore';
 
 const MainApp = () => (
   <Provider store={store}>
-    <AppRouter/>
+    <MuiThemeProvider>
+      <AppRouter/>
+    </MuiThemeProvider>
   </Provider>
 );
 

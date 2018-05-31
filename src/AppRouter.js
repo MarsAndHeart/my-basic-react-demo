@@ -33,12 +33,17 @@ class AppRouter extends Component<Props>{
     history.listen((location,action) => {
       let route = this.props.route;
       if(action === 'POP'){
-        if(!route.find(ele=>ele === location.pathname)){
+        const lastRoute = route[route.length - 1];
+        if(lastRoute.slice(-7)==='?noback'){
+          history.push(lastRoute);
+          return;
+        }
+        const nameAndSearch = `${location.pathname}${location.search}`;
+        if(!route.find(ele=>ele === nameAndSearch)){
           this.hasGoForward = true;
-          this.props.push(location.pathname);
+          this.props.push(nameAndSearch);
         }else{
-          const lastRoute = route[route.length - 1];
-          if(location.pathname !== lastRoute){
+          if(nameAndSearch !== lastRoute){
             // 如果最后一个路由和当前页面不同,则未更改路由
             this.hasGoBack = true;
             this.props.pop();

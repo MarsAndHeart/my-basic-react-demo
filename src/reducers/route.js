@@ -16,12 +16,17 @@ const route = (routes: Array<RouteType> = [indexPage], action: Action) => {
     let newRoutes = [].concat(routes);
     const lastRoute = newRoutes[newRoutes.length-1];
     if(lastRoute !== action.route){
-      newRoutes.push(action.route);
+      newRoutes = newRoutes.concat(action.route);
     }
     return newRoutes;
   }
   if (action.type === 'route/pop') {
     let newRoutes = [].concat(routes);
+    const lastRoute = newRoutes[newRoutes.length-1];
+    if(lastRoute.slice(-7)==='?noback'){
+      return newRoutes;
+    }
+    
     if(newRoutes.length>1){
       newRoutes.pop();
     }

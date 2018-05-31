@@ -17,13 +17,30 @@ type Props = {
 const Navigation = (props: Props) => {
   return (
     <div>
-      <div onClick={props.pop}>go back</div>
-      <div onClick={()=>{props.push('/');}}>go indexPage</div>
-      <div onClick={()=>{props.push('/Page1');}}>go page1</div>
-      <div onClick={()=>{props.push('/Page2');}}>go page2</div>
-      <div>{'route: '+props.route.join(', ')}</div>
+      <div style={styles.line} onClick={props.pop}>go back</div>
+      <div style={styles.line} onClick={()=>{props.push('/');}}>go indexPage</div>
+      <div style={styles.line} onClick={()=>{props.push('/Page1');}}>go page1</div>
+      <div style={styles.line} onClick={()=>{props.push('/Page2');}}>go page2</div>
+      <div style={styles.line} onClick={()=>{props.push('/Page3');}}>go page3</div>
+      <div style={styles.line} onClick={()=>{props.push('/Page3?noback');}}>go page3 noBack</div>
+      <div style={styles.route}>{'route: '+props.route.join(', ')}</div>
     </div>
   );
+};
+
+const styles = {
+  line:{
+    height:'44px',
+    fontSize:'14px',
+    lineHeight:'44px',
+    backgroundColor:'#239999',
+    color:'#FFF',
+    margin:'10px',
+    paddingLeft:'10px',
+  },
+  route:{
+    margin:'20px',
+  }
 };
 
 function propsMaping(store){

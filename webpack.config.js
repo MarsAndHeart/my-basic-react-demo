@@ -47,6 +47,9 @@ module.exports = {
   },
 
   plugins: [
+    new webpack.DefinePlugin({
+      __DEV__:'true'
+    }),
     new HtmlWebpackPlugin({
       template: __dirname + "/src/index.tmpl.html"
     }),

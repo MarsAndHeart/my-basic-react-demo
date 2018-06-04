@@ -9,6 +9,7 @@ import Navigation from '../component/Navigation';
 
 const Page1 = () => (
   <div>
+    {__DEV__ && <div>hello this div is dev only</div>}
     <div style={{fontSize:20,backgroundColor:'#F3F3F3'}}>Page1</div>
     <Navigation/>
   </div>

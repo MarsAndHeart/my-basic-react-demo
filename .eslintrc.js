@@ -42,4 +42,7 @@ module.exports = {
         ],
         "react/no-deprecated":"off"
     },
+    "globals": {
+        "__DEV__": true,
+    }
 };

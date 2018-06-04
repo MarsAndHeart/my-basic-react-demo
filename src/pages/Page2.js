@@ -19,7 +19,7 @@ class Page2 extends Component<void,void> {
     const url = 'http://localhost:3000/customerList?reqid=233';
     const body = {'name': 'mike'};
 
-    axPost(url,body);
+    axPost(url, body);
 
     // 测试axios成功
     // axios.post(url, JSON.stringify(body))

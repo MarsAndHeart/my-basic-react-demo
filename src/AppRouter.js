@@ -3,9 +3,9 @@
  * @flow
  */
 import React, {Component} from 'react';
-import { Router, Route } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { compose } from 'redux';
+import {Router, Route} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {compose} from 'redux';
 
 import type {RouteType} from './reducers/route';
 import actions from './actions';
@@ -19,31 +19,33 @@ type Props = {
   pop: ()=>{},
 }
 
-class AppRouter extends Component<Props>{
-  constructor(props: Props){
+class AppRouter extends Component<Props> {
+  constructor(props: Props) {
     super(props);
     this.hasGoBack = false;
     this.hasGoForward = false;
   }
+
   hasGoBack: boolean
   hasGoForward: boolean
-  componentDidMount(){
+
+  componentDidMount() {
     const history = this.props.history;
 
-    history.listen((location,action) => {
+    history.listen((location, action) => {
       let route = this.props.route;
-      if(action === 'POP'){
+      if (action === 'POP') {
         const lastRoute = route[route.length - 1];
-        if(lastRoute.slice(-7)==='?noback'){
+        if (lastRoute.slice(-7) === '?noback') {
           history.push(lastRoute);
           return;
         }
         const nameAndSearch = `${location.pathname}${location.search}`;
-        if(!route.find(ele=>ele === nameAndSearch)){
+        if (!route.find(ele=>ele === nameAndSearch)) {
           this.hasGoForward = true;
           this.props.push(nameAndSearch);
-        }else{
-          if(nameAndSearch !== lastRoute){
+        } else {
+          if (nameAndSearch !== lastRoute) {
             // 如果最后一个路由和当前页面不同,则未更改路由
             this.hasGoBack = true;
             this.props.pop();
@@ -52,35 +54,39 @@ class AppRouter extends Component<Props>{
       }
     });
   }
-  componentWillReceiveProps(nextProps){
+
+  componentWillReceiveProps(nextProps) {
     const history = this.props.history;
     const thisRouteArr = this.props.route;
     const nextRouteArr = nextProps.route;
 
-    if(nextRouteArr.length > thisRouteArr.length){
-      if(!this.hasGoForward){
-        const targetRoute = nextRouteArr[nextRouteArr.length-1];
+    if (nextRouteArr.length > thisRouteArr.length) {
+      if (!this.hasGoForward) {
+        const targetRoute = nextRouteArr[nextRouteArr.length - 1];
         history.push(targetRoute);
-      }else{
+      } else {
         this.hasGoForward = false;
       }
-    }else if(nextRouteArr.length < thisRouteArr.length){
-      if(!this.hasGoBack){
+    } else if (nextRouteArr.length < thisRouteArr.length) {
+      if (!this.hasGoBack) {
         this.goBack();
-      }else{
+      } else {
         this.hasGoBack = false;
       }
     }
   }
-  goBack(){
+
+  goBack() {
     const history = this.props.history;
     history.goBack();
   }
-  goBackAndPopRoute(){
+
+  goBackAndPopRoute() {
     this.props.pop();
     this.goBack();
   }
-  render(){
+
+  render() {
     return (
       <Router history={this.props.history}>
         <div>
@@ -95,8 +101,8 @@ class AppRouter extends Component<Props>{
   }
 }
 
-function propsMapping(store){
-  const { route, history } = store;
+function propsMapping(store) {
+  const {route, history} = store;
   return {
     route,
     history,

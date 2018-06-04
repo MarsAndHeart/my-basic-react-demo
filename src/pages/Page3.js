@@ -2,10 +2,11 @@
 import * as React from 'react';
 import Navigation from '../component/Navigation';
 
-class Page3 extends React.Component{
-  constructor(props){
+class Page3 extends React.Component {
+  constructor(props) {
     super(props);
   }
+
   // componentWillMount(){
   //   window.addEventListener('popState',pushEmptyPage);
   //   function pushEmptyPage(){
@@ -14,8 +15,8 @@ class Page3 extends React.Component{
   //   }
   //   pushEmptyPage();
   // }
-  render(){
-    return(
+  render() {
+    return (
       <div>
         <div>Page3</div>
         <Navigation/>

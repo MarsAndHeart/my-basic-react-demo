@@ -5,5 +5,5 @@
 import routeAction from './route';
 
 export default {
-  routeAction,
+  routeAction
 };

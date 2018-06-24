@@ -9,8 +9,8 @@ import Navigation from '../component/Navigation';
 
 const IndexPage = () => (
   <div>
-    <div style={{fontSize:20,backgroundColor:'#F3F3F3'}}>indexPage</div>
-    <Navigation/>
+    <div style={{ fontSize: 20, backgroundColor: '#F3F3F3' }}>indexPage</div>
+    <Navigation />
   </div>
 );
 

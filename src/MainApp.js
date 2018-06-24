@@ -10,7 +10,7 @@ import store from './basicStore';
 
 const MainApp = () => (
   <Provider store={store}>
-    <AppRouter/>
+    <AppRouter />
   </Provider>
 );
 

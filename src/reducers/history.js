@@ -9,8 +9,8 @@ const initHistoryObj = createHistory();
 
 type Action = {
   type: string,
-  payload: any,
-}
+  payload: any
+};
 
 const history = (historyObj: any = initHistoryObj, action: Action) => {
   if (action.type === 'history/set') {

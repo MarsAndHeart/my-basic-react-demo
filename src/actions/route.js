@@ -7,32 +7,33 @@
 
 import type { RouteType } from '../reducers/route';
 
-type Action = { type: 'route/push', route: RouteType | Array<RouteType> }
+type Action =
+  | { type: 'route/push', route: RouteType | Array<RouteType> }
   | { type: 'route/pop' }
-  | { type: 'route/replace', route: RouteType | Array<RouteType> }
+  | { type: 'route/replace', route: RouteType | Array<RouteType> };
 
 const pushRoute = (route: RouteType | Array<RouteType>): Action => {
   return {
     type: 'route/push',
-    route,
+    route
   };
 };
 
 const pop = (): Action => {
   return {
-    type: 'route/pop',
+    type: 'route/pop'
   };
 };
 
 const replaceRoute = (route: RouteType): Action => {
   return {
     type: 'route/replace',
-    route,
+    route
   };
 };
 
 export default {
   pushRoute,
   pop,
-  replaceRoute,
+  replaceRoute
 };

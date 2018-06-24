@@ -2,7 +2,7 @@
  * Created by jianghai on 2018/2/26.
  * @flow
  */
-import {createStore} from 'redux';
+import { createStore } from 'redux';
 
 import reducers from './reducers';
 
